@@ -15,7 +15,9 @@ $files_to_copy_v8=[
   'sites/default/settings.php',
   '.htaccess',
   'robots.txt',
-  'web.config'
+  'web.config',
+  //'composer.lock',
+  'composer.json'
 ];
 $latest_drupal7_url="https://ftp.drupal.org/files/projects/drupal-7.63.zip";
 $folders_to_copy_v7=[
@@ -26,7 +28,9 @@ $files_to_copy_v7=[
   'sites/default/settings.php',
   '.htaccess',
   'robots.txt',
-  'web.config'
+  'web.config',
+  //'composer.lock',
+  'composer.json'
 ];
 
 ///////Auto detect version
@@ -138,6 +142,7 @@ if(!rename($unzipped_path,'../'.$webrootname))
 rmdir($unzip_path);
 echo 'Update core finished'.'<br/>';
 echo 'Go to <a href="/update.php">update.php</a><br/>';
+echo 'You may also need to run "composer update --with-dependencies" in the terminal.<br/>';
 exit();
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
