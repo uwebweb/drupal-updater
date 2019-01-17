@@ -59,10 +59,10 @@ if(!file_exists($target_path))
 $unzip_path='../latest_drupal_core';
 if(!unzip($unzip_path,$target_path))
   exit();
-unlink($target_path);
+@unlink($target_path);
+$unzipped_path=$unzip_path.'/'.preg_replace('/\\.[^.\\s]{3,4}$/', '', basename($latest_drupal_url));
 
 ///////copy necessary files and folders
-$unzipped_path=$unzip_path.'/'.preg_replace('/\\.[^.\\s]{3,4}$/', '', basename($latest_drupal_url));
 if($drupal_version==8)
 {
   $files_to_copy=$files_to_copy_v8;
@@ -73,6 +73,35 @@ elseif($drupal_version==7)
   $files_to_copy=$files_to_copy_v7;
   $folders_to_copy=$folders_to_copy_v7;
 }
+
+//////find another files
+$sourceDirList=[];
+if ($handle = opendir($unzipped_path)) {
+    while (false !== ($entry = readdir($handle))) {
+        if ($entry != "." && $entry != "..") {
+            $sourceDirList[]=$entry;
+        }
+    }
+    closedir($handle);
+}
+if ($handle = opendir('.')) {
+    while (false !== ($entry = readdir($handle))) {
+        if ($entry != "." && $entry != "..") {
+            if(!in_array($entry,$sourceDirList) && $entry!=basename(__FILE__) && pathinfo($entry, PATHINFO_EXTENSION)!='swp')
+            {
+              if(is_dir($entry))
+              {
+                $folders_to_copy[]=$entry;
+              }
+              else{
+                $files_to_copy[]=$entry;
+              }
+            }
+        }
+    }
+    closedir($handle);
+}
+
 
 foreach ($files_to_copy as $file) {
   if(!copy($file,$unzipped_path.'/'.$file))
