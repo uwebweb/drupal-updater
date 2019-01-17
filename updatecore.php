@@ -1,9 +1,11 @@
 <?php
-// 2019-01-04
+// 2019-01-17
 // >= PHP 5.1.0
+// Drupal core 8.6.7
+// Drupal core 7.63
 
 //Setting
-$latest_drupal8_url="https://ftp.drupal.org/files/projects/drupal-8.6.5.zip";
+$latest_drupal8_url="https://ftp.drupal.org/files/projects/drupal-8.6.7.zip";
 $folders_to_copy_v8=[
   'sites/default/files',
   'core/themes',
@@ -15,7 +17,7 @@ $files_to_copy_v8=[
   'robots.txt',
   'web.config'
 ];
-$latest_drupal7_url="https://ftp.drupal.org/files/projects/drupal-7.61.zip";
+$latest_drupal7_url="https://ftp.drupal.org/files/projects/drupal-7.63.zip";
 $folders_to_copy_v7=[
   'sites/default/files',
   'sites/all',
@@ -143,7 +145,7 @@ function downloadFile($url, $path)
     $newfname = $path;
     $file = fopen ($url, 'rb');
     if ($file) {
-        unlink($newfname);
+        @unlink($newfname);
         $newf = fopen ($newfname, 'wb');
         if ($newf) {
             while(!feof($file)) {
