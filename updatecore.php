@@ -1,11 +1,11 @@
 <?php
-// 2019-01-17
+// 2019-02-28
 // >= PHP 5.1.0
-// Drupal core 8.6.9
+// Drupal core 8.6.10
 // Drupal core 7.64
 
 //Setting
-$latest_drupal8_url="https://ftp.drupal.org/files/projects/drupal-8.6.9.zip";
+$latest_drupal8_url="https://ftp.drupal.org/files/projects/drupal-8.6.10.zip";
 $folders_to_copy_v8=[
   'sites/default/files',
   'core/themes',
