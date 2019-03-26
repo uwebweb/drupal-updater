@@ -1,11 +1,11 @@
 <?php
-// 2019-02-28
+// 2019-03-27
 // >= PHP 5.1.0
-// Drupal core 8.6.10
-// Drupal core 7.64
+// Drupal core 8.6.13
+// Drupal core 7.65
 
 //Setting
-$latest_drupal8_url="https://ftp.drupal.org/files/projects/drupal-8.6.10.zip";
+$latest_drupal8_url="https://ftp.drupal.org/files/projects/drupal-8.6.13.zip";
 $folders_to_copy_v8=[
   'sites/default/files',
   'core/themes',
@@ -19,7 +19,7 @@ $files_to_copy_v8=[
   //'composer.lock',
   'composer.json'
 ];
-$latest_drupal7_url="https://ftp.drupal.org/files/projects/drupal-7.64.zip";
+$latest_drupal7_url="https://ftp.drupal.org/files/projects/drupal-7.65.zip";
 $folders_to_copy_v7=[
   'sites/default/files',
   'sites/all',
