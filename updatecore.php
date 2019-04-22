@@ -1,5 +1,5 @@
 <?php
-// 2019-03-27
+// 2019-04-22
 // >= PHP 5.1.0
 // Drupal core 8.6.15
 // Drupal core 7.66
@@ -108,7 +108,7 @@ if ($handle = opendir('.')) {
 
 
 foreach ($files_to_copy as $file) {
-  if(file_exists($unzipped_path.'/'.$file) && !copy($file,$unzipped_path.'/'.$file))
+  if(file_exists($file) && !copy($file,$unzipped_path.'/'.$file))
   {
     echo 'There was a problem while copying '.$file.' to '.$unzipped_path.'/'.$file.'<br/>';
     exit();
