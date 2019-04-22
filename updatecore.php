@@ -108,7 +108,7 @@ if ($handle = opendir('.')) {
 
 
 foreach ($files_to_copy as $file) {
-  if(!copy($file,$unzipped_path.'/'.$file))
+  if(file_exists($unzipped_path.'/'.$file) && !copy($file,$unzipped_path.'/'.$file))
   {
     echo 'There was a problem while copying '.$file.' to '.$unzipped_path.'/'.$file.'<br/>';
     exit();
