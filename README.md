@@ -1,5 +1,5 @@
 # drupal-updater
-This code help you easily update the Drupal core to Drupal 7.66 and Drupal 8.6.15
+This code can help you update Drupal core to Drupal 7.66 and Drupal 8.6.15 easily.
 
 Step:
 1. Place updatecore.php into the drupal website folder.
